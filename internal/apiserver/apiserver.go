@@ -1,6 +1,8 @@
 package apiserver
 
-type APIServer struct{
+import "fmt"
+
+type APIServer struct {
 	config *Config
 }
 
@@ -11,5 +13,6 @@ func New(config *Config) *APIServer {
 }
 
 func (s *APIServer) Start() error {
+	fmt.Println("Server is running")
 	return nil
 }

@@ -4,7 +4,7 @@ import (
 	"flag"
 	"log"
 
-	"github.com/!burnt!sushi/toml"
+	"github.com/BurntSushi/toml"
 	"github.com/iktkhor/http-rest-api.git/internal/apiserver"
 )
 
@@ -21,6 +21,9 @@ func main() {
 
 	config := apiserver.NewConfig()
 	_, err := toml.DecodeFile(configPath, config)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	s := apiserver.New(config)
 	if err = s.Start(); err != nil {
